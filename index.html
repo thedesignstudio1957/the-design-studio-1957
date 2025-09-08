@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Design Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .bg-flow-gradient {
+            background: linear-gradient(to bottom, #000000, #4b5563, #ffffff);
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="bg-flow-gradient text-white antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 p-6 md:p-8 bg-opacity-80 backdrop-filter backdrop-blur-sm shadow-sm">
+        <nav class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="javascript:void(0);" data-page="home" class="text-2xl font-bold tracking-tight text-white transition-opacity duration-300 hover:opacity-80">The Design Studio</a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-sm font-medium">
+                <li><a href="javascript:void(0);" data-page="home" class="hover:text-gray-400 transition-colors duration-300">Home</a></li>
+                <li><a href="javascript:void(0);" data-page="websites" class="hover:text-gray-400 transition-colors duration-300">Websites</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 right-0 bottom-0 bg-opacity-95 backdrop-filter backdrop-blur-md z-40 hidden flex-col items-center justify-center space-y-8 text-xl font-medium md:hidden">
+        <button id="close-menu-button" class="absolute top-6 right-8 text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a href="javascript:void(0);" data-page="home" class="hover:text-gray-400" onclick="hideMenu()">Home</a>
+        <a href="javascript:void(0);" data-page="websites" class="hover:text-gray-400" onclick="hideMenu()">Websites</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page h-screen flex flex-col justify-center items-center text-center p-8">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">The Design Studio</h1>
+            <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed">
+                Creating digital opportunities for prosperity within key sectors.
+            </p>
+        </section>
+
+        <!-- Websites Page -->
+        <section id="websites" class="page container mx-auto py-16 px-8 min-h-screen pt-32 hidden">
+            <h1 class="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">Websites</h1>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <li><a href="#" class="text-xl sm:text-2xl md:text-3xl font-light text-gray-200 transition-colors duration-300 hover:text-white">Space Engineering Unfiltered</a></li>
+                <li><a href="#" class="text-xl sm:text-2xl md:text-3xl font-light text-gray-200 transition-colors duration-300 hover:text-white">Project Website Two</a></li>
+                <li><a href="#" class="text-xl sm:text-2xl md:text-3xl font-light text-gray-200 transition-colors duration-300 hover:text-white">Project Website Three</a></li>
+                <li><a href="#" class="text-xl sm:text-2xl md:text-3xl font-light text-gray-200 transition-colors duration-300 hover:text-white">Project Website Four</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-gray-400 text-center py-8 bg-opacity-50">
+        <p>&copy; 2024 The Design Studio. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show a specific page and hide others
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        // Add click event listeners to navigation links
+        document.querySelectorAll('a[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+                hideMenu(); // Close mobile menu if open
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevents scrolling
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            hideMenu();
+        });
+        
+        function hideMenu() {
+             mobileMenu.classList.add('hidden');
+             document.body.style.overflow = 'auto'; // Re-enables scrolling
+        }
+
+        // Initially show the home page
+        window.addEventListener('load', () => {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>

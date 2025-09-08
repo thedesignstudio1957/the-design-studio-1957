@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Design Studio</title>
+    <title>The Design Studio.</title>
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
@@ -26,7 +26,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 p-6 md:p-8 bg-opacity-80 backdrop-filter backdrop-blur-sm shadow-sm">
         <nav class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <a href="javascript:void(0);" data-page="home" class="text-2xl font-bold tracking-tight text-white transition-opacity duration-300 hover:opacity-80">The Design Studio</a>
+            <a href="javascript:void(0);" data-page="home" class="text-2xl font-bold tracking-tight text-white transition-opacity duration-300 hover:opacity-80">The Design Studio.</a>
 
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -38,7 +38,7 @@
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-sm font-medium">
                 <li><a href="javascript:void(0);" data-page="home" class="hover:text-gray-400 transition-colors duration-300">Home</a></li>
-                <li><a href="javascript:void(0);" data-page="websites" class="hover:text-gray-400 transition-colors duration-300">Websites</a></li>
+                <li><a href="javascript:void(0);" data-page="opportunities" class="hover:text-gray-400 transition-colors duration-300">The Studio</a></li>
             </ul>
         </nav>
     </header>
@@ -51,27 +51,24 @@
             </svg>
         </button>
         <a href="javascript:void(0);" data-page="home" class="hover:text-gray-400" onclick="hideMenu()">Home</a>
-        <a href="javascript:void(0);" data-page="websites" class="hover:text-gray-400" onclick="hideMenu()">Websites</a>
+        <a href="javascript:void(0);" data-page="opportunities" class="hover:text-gray-400" onclick="hideMenu()">The Studio</a>
     </div>
 
     <!-- Main Content -->
     <main>
         <!-- Home Page -->
         <section id="home" class="page h-screen flex flex-col justify-center items-center text-center p-8">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">The Design Studio</h1>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">The Design Studio.</h1>
             <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed">
-                Creating digital opportunities for prosperity.
+                Bringing Opportunities for Prosperity.
             </p>
         </section>
 
-        <!-- Websites Page -->
-        <section id="websites" class="page h-screen flex flex-col justify-center items-center text-center p-8 hidden">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">Websites</h1>
+        <!-- Opportunities Page -->
+        <section id="opportunities" class="page h-screen flex flex-col justify-center items-center text-center p-8 hidden">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">Opportunities.</h1>
             <ul class="space-y-4 md:space-y-6">
                 <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Space Engineering Unfiltered</a></li>
-                <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Project Website Two</a></li>
-                <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Project Website Three</a></li>
-                <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Project Website Four</a></li>
             </ul>
         </section>
     </main>

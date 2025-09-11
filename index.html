@@ -9,6 +9,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -26,7 +29,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 p-6 md:p-8 bg-opacity-80 backdrop-filter backdrop-blur-sm shadow-sm">
         <nav class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <a href="javascript:void(0);" data-page="home" class="text-2xl font-bold tracking-tight text-white transition-opacity duration-300 hover:opacity-80">The Design Studio.</a>
+            <a href="#beginning" class="text-2xl font-bold tracking-tight text-white transition-opacity duration-300 hover:opacity-80">The Design Studio.</a>
 
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -37,8 +40,9 @@
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-sm font-medium">
-                <li><a href="javascript:void(0);" data-page="home" class="hover:text-gray-400 transition-colors duration-300">Home</a></li>
-                <li><a href="javascript:void(0);" data-page="opportunities" class="hover:text-gray-400 transition-colors duration-300">The Studio</a></li>
+                <li><a href="#beginning" class="hover:text-gray-400 transition-colors duration-300">Beginning</a></li>
+                <li><a href="#aerospace" class="hover:text-gray-400 transition-colors duration-300">Aerospace</a></li>
+                <li><a href="#energy" class="hover:text-gray-400 transition-colors duration-300">Energy</a></li>
             </ul>
         </nav>
     </header>
@@ -48,27 +52,36 @@
         <button id="close-menu-button" class="absolute top-6 right-8 text-white focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-        <a href="javascript:void(0);" data-page="home" class="hover:text-gray-400" onclick="hideMenu()">Home</a>
-        <a href="javascript:void(0);" data-page="opportunities" class="hover:text-gray-400" onclick="hideMenu()">The Studio</a>
+                </svg>
+            </button>
+        <a href="#beginning" class="hover:text-gray-400" onclick="hideMenu()">Beginning</a>
+        <a href="#aerospace" class="hover:text-gray-400" onclick="hideMenu()">Aerospace</a>
+        <a href="#energy" class="hover:text-gray-400" onclick="hideMenu()">Energy</a>
     </div>
 
     <!-- Main Content -->
     <main>
-        <!-- Home Page -->
-        <section id="home" class="page h-screen flex flex-col justify-center items-center text-center p-8">
+        <!-- Beginning Section -->
+        <section id="beginning" class="min-h-screen flex flex-col justify-center items-center text-center p-8">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">The Design Studio.</h1>
             <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed">
-                Bringing Opportunities for Prosperity.
+                Bringing Opportunity to Prosperity
             </p>
         </section>
 
-        <!-- Opportunities Page -->
-        <section id="opportunities" class="page h-screen flex flex-col justify-center items-center text-center p-8 hidden">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">Opportunities.</h1>
+        <!-- Aerospace Section -->
+        <section id="aerospace" class="min-h-screen flex flex-col justify-center items-center text-center p-8">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">Aerospace</h1>
             <ul class="space-y-4 md:space-y-6">
                 <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Space Engineering Unfiltered</a></li>
+            </ul>
+        </section>
+        
+        <!-- Energy Section -->
+        <section id="energy" class="min-h-screen flex flex-col justify-center items-center text-center p-8">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">Energy</h1>
+            <ul class="space-y-4 md:space-y-6">
+                <li><a href="#" class="text-sm sm:text-base md:text-lg text-gray-400 transition-colors duration-300 hover:text-white">Renewable Grid Optimization</a></li>
             </ul>
         </section>
     </main>
@@ -79,23 +92,6 @@
     </footer>
 
     <script>
-        // Function to show a specific page and hide others
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.add('hidden');
-            });
-            document.getElementById(pageId).classList.remove('hidden');
-        }
-
-        // Add click event listeners to navigation links
-        document.querySelectorAll('a[data-page]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const pageId = this.getAttribute('data-page');
-                showPage(pageId);
-                hideMenu(); // Close mobile menu if open
-            });
-        });
-
         // Mobile menu functionality
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -114,11 +110,6 @@
              mobileMenu.classList.add('hidden');
              document.body.style.overflow = 'auto'; // Re-enables scrolling
         }
-
-        // Initially show the home page
-        window.addEventListener('load', () => {
-            showPage('home');
-        });
     </script>
 </body>
 </html>
